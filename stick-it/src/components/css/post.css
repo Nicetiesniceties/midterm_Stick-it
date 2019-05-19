@@ -1,0 +1,20 @@
+.box {
+    width:400px;
+    height:400px;
+    background: orange;
+    margin:40px auto;
+    padding: 20px;
+}
+  .paper-shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border-radius: inherit;
+    pointer-events: none;
+  }
+  .paper-shadow-top {
+    /*box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.5);*/
+    box-shadow: 0 15px 25px -4px rgba(0,0,0,0.2), inset 0 -3px 4px -1px rgba(0,0,0,0.2), 0 0px 5px -1px rgba(0, 0, 0,0.9) 
+}

@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-white antialiased">
+<head>
+    <meta charset="utf-8">
+    <meta id="token" value="M5k1eknbmQSdRp5Mv6fKWg4d4le4gmNBTXODcRSO">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="">
+    <meta name="canonical" content="https://paulund.co.uk/learn-how-to-create-different-css-box-shadow-effects">
+    <meta name="author" content="Paulund">
+    <link rel="stylesheet" href="app.css">
+    <meta name="csrf-token" content="M5k1eknbmQSdRp5Mv6fKWg4d4le4gmNBTXODcRSO">
+    <title>Learn How To Create Different CSS Box Shadow Effects - Paulund</title>
+
+        <link rel="stylesheet" href="prism.css">
+</head>
+<body class="font-source-sans font-normal text-black leading-normal">
+
+<div id="app">
+    <header class="flex h-32 items-center bg-white">
+    <div class="w-full container-md mx-auto px-6">
+        <div class="flex justify-between flex-col md:flex-row">
+            <div class="w-full md:w-1/5 text-center md:text-left">
+                <a href="https://paulund.co.uk"><h1>Paulund</h1></a>
+            </div>
+
+            <div>
+                                    <a href="https://paulund.co.uk/login" class="button m-2 block text-center">Login</a>
+                            </div>
+        </div>
+    </div>
+</header>
+    <div class="w-full container-md mx-auto px-6">
+            <div class="flex items-center text-center py-20 mb-4">
+        <section>
+            <time class="publish-date" datetime="%1$s">27th February 2012</time>
+                                        in <a href="https://paulund.co.uk/tutorials/css">CSS</a>
+            
+            <h1 class="mt-4 mb-0 text-5xl">Learn How To Create Different CSS Box Shadow Effects</h1>
+
+                    </section>
+    </div>
+
+                                <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CKYIE2QJ&placement=paulundcouk" id="_carbonads_js"></script>
+                <div class="mb-8">
+        <p>In this tutorial we are going to learn how to use the CSS box shadow property to create different effects with just CSS. Below is an image created in photoshop of different box shadows effects. These used to be the only way of creating this effect but thanks to CSS3 we can now do all this with just CSS. View Demo page to see what we are going to create <a href="http://www.paulund.co.uk/playground/demo/css_box_shadow/">CSS Box Shadow Effects Demo</a> <img src="http://www.paulund.co.uk/uploads/2012/01/Web-Shadows-Package.png" alt="Web Shadows Package" title="Web Shadows Package" /></p>
+<h2>CSS Box Shadow</h2>
+<p>We are going to be using the CSS box shadow property which is one my favourite CSS properties which you will see in this tutorial how easy you can use it. The box-shadow property allows you to easily create multiple drop shadows on box elements by specifying values for colour, size, blur and offset. The box-shadow property accepts 2-6 options, the required options are horizontal offset and vertical offset, the two optional options are spread distance and colour.   </p>
+<pre><code>
+box-shadow: inset horizontal vertical blur spread colour;
+</code></pre>
+<p><strong>Examples</strong>   </p>
+<pre><code>
+box-shadow: 10px 10px;
+box-shadow: 10px 10px 5px #888;
+box-shadow: inset 2px 2px 2px 2px black;
+box-shadow: 10px 10px #888, -10px -10px #f4f4f4, 0px 0px 5px 5px #cc6600;
+</code></pre>
+<h3>Browser Support</h3>
+<p>All of the major newest browsers support box-shadow property. </p>
+<ul>
+<li>Internet Explorer 9.0 and higher</li>
+<li>Firefox 3.5 and higher</li>
+<li>Chrome 1 and higher</li>
+<li>Safari 3 and higher</li>
+<li>
+<p>Opera 10.5 and higher</p>
+<p>With many new CSS3 properties you need to prefix the property with browser specific tags. For firefox you need to use <em>-moz-</em>, for chrome/safari you need to use <em>-webkit</em>. The box-shadow property is no different. For Firefox 3.5 you need to prefix with -moz-boz-shadow, but for Firefox 4.0 and higher you don't need to use the prefix anymore. For Chrome/safari you still need to use the -webkit-box-shadow. For opera you don't need to prefix the property and can just use box-shadow. </p>
+</li>
+</ul>
+<h2>CSS Box Shadow Effect 1</h2>
+<p><img src="http://www.paulund.co.uk/uploads/2012/01/CSS-Box-Shadow-Effects1-590x206.png" alt="CSS Box Shadow Effects1" title="CSS Box Shadow Effects1" /> This will create a standard box shadow effect with the shadow moved into the element to create a raised box look. </p>
+<h3>The HTML</h3>
+<pre><code>
+&lt;div class="box effect1"&gt;
+    &lt;h3&gt;Effect 1&lt;/h3&gt;
+&lt;/div&gt;
+</code></pre>
+<h3>The CSS</h3>
+<pre><code>
+.box h3{
+    text-align:center;
+    position:relative;
+    top:80px;
+}
+.box {
+    width:70%;
+    height:200px;
+    background:#FFF;
+    margin:40px auto;
+}
+
+/*==================================================
+ * Effect 1
+ * ===============================================*/
+.effect1{
+     box-shadow: 0 10px 6px -6px #777;
+}
+</code></pre>
+<h2>CSS Box Shadow Effect 2</h2>
+<p><img src="http://www.paulund.co.uk/uploads/2012/01/CSS-Box-Shadow-Effects2-590x206.png" alt="CSS Box Shadow Effects2" title="CSS Box Shadow Effects2" /> This effect will add shadows to the bottom corners of the boxes to create a lifted corner look on the boxes. This effect uses both the :before and :after properties to create new elements used for the corners. </p>
+<h3>The HTML</h3>
+<pre><code>
+&lt;div class="box effect2"&gt;
+    &lt;h3&gt;Effect 2&lt;/h3&gt;
+&lt;/div&gt;
+</code></pre>
+<h3>The CSS</h3>
+<pre><code>
+.box h3{
+    text-align:center;
+    position:relative;
+    top:80px;
+}
+.box {
+    width:70%;
+    height:200px;
+    background:#FFF;
+    margin:40px auto;
+}
+
+/*==================================================
+ * Effect 2
+ * ===============================================*/
+.effect2
+{
+  position: relative;
+}
+.effect2:before, .effect2:after
+{
+  z-index: -1;
+  position: absolute;
+  content: "";
+  bottom: 15px;
+  left: 10px;
+  width: 50%;
+  top: 80%;
+  max-width:300px;
+  background: #777;
+  box-shadow: 0 15px 10px #777;
+  transform: rotate(-3deg);
+}
+.effect2:after
+{
+  transform: rotate(3deg);
+  right: 10px;
+  left: auto;
+}
+</code></pre>
+<h2>CSS Box Shadow Effect 3</h2>
+<p><img src="http://www.paulund.co.uk/uploads/2012/01/CSS-Box-Shadow-Effects3-590x205.png" alt="CSS Box Shadow Effects3" title="CSS Box Shadow Effects3" /> This uses half of the effect approve and will add a lifted corner to the bottom left of the box. </p>
+<h3>The HTML</h3>
+<pre><code>
+&lt;div class="box effect3"&gt;
+    &lt;h3&gt;Effect 3&lt;/h3&gt;
+&lt;/div&gt;
+</code></pre>
+<h3>The CSS</h3>
+<pre><code>
+.box h3{
+    text-align:center;
+    position:relative;
+    top:80px;
+}
+.box {
+    width:70%;
+    height:200px;
+    background:#FFF;
+    margin:40px auto;
+}
+
+/*==================================================
+ * Effect 3
+ * ===============================================*/
+.effect3
+{
+  position: relative;
+}
+.effect3:before
+{
+  z-index: -1;
+  position: absolute;
+  content: "";
+  bottom: 15px;
+  left: 10px;
+  width: 50%;
+  top: 80%;
+  max-width:300px;
+  background: #777;
+  box-shadow: 0 15px 10px #777;
+  transform: rotate(-3deg);
+}
+</code></pre>
+<h2>CSS Box Shadow Effect 4</h2>
+<p><img src="http://www.paulund.co.uk/uploads/2012/01/CSS-Box-Shadow-Effects4-590x205.png" alt="CSS Box Shadow Effects4" title="CSS Box Shadow Effects4" /> Effect 4 will lift the corner on the bottom right of the box. </p>
+<h3>The HTML</h3>
+<pre><code>
+&lt;div class="box effect4"&gt;
+    &lt;h3&gt;Effect 4&lt;/h3&gt;
+&lt;/div&gt;
+</code></pre>
+<h3>The CSS</h3>
+<pre><code>
+.box h3{
+    text-align:center;
+    position:relative;
+    top:80px;
+}
+.box {
+    width:70%;
+    height:200px;
+    background:#FFF;
+    margin:40px auto;
+}
+
+/*==================================================
+ * Effect 4
+ * ===============================================*/
+.effect4
+{
+  position: relative;
+}
+.effect4:after
+{
+  z-index: -1;
+  position: absolute;
+  content: "";
+  bottom: 15px;
+  right: 10px;
+  left: auto;
+  width: 50%;
+  top: 80%;
+  max-width:300px;
+  background: #777;
+  box-shadow: 0 15px 10px #777;
+  transform: rotate(3deg);
+}
+</code></pre>
+<h2>CSS Box Shadow Effect 5</h2>
+<p><img src="http://www.paulund.co.uk/uploads/2012/01/CSS-Box-Shadow-Effects5-590x223.png" alt="CSS Box Shadow Effects5" title="CSS Box Shadow Effects5" /> This is expands on the effect 2 and will increase the angle of the shadows. </p>
+<h3>The HTML</h3>
+<pre><code>
+&lt;div class="box effect5"&gt;
+    &lt;h3&gt;Effect 5&lt;/h3&gt;
+&lt;/div&gt;
+</code></pre>
+<h3>The CSS</h3>
+<pre><code>
+.box h3{
+    text-align:center;
+    position:relative;
+    top:80px;
+}
+.box {
+    width:70%;
+    height:200px;
+    background:#FFF;
+    margin:40px auto;
+}
+
+/*==================================================
+ * Effect 5
+ * ===============================================*/
+.effect5
+{
+  position: relative;
+}
+.effect5:before, .effect5:after
+{
+  z-index: -1;
+  position: absolute;
+  content: "";
+  bottom: 25px;
+  left: 10px;
+  width: 50%;
+  top: 80%;
+  max-width:300px;
+  background: #777;
+  box-shadow: 0 35px 20px #777;
+  transform: rotate(-8deg);
+}
+.effect5:after
+{
+  transform: rotate(8deg);
+  right: 10px;
+  left: auto;
+}
+</code></pre>
+<h2>CSS Box Shadow Effect 6</h2>
+<p><img src="http://www.paulund.co.uk/uploads/2012/01/CSS-Box-Shadow-Effects6-590x192.png" alt="CSS Box Shadow Effects6" title="CSS Box Shadow Effects6" /> This effect will create a curved shadow at the bottom of the box. </p>
+<h3>The HTML</h3>
+<pre><code>
+&lt;div class="box effect6"&gt;
+    &lt;h3&gt;Effect 6&lt;/h3&gt;
+&lt;/div&gt;
+</code></pre>
+<h3>The CSS</h3>
+<pre><code>
+.box h3{
+    text-align:center;
+    position:relative;
+    top:80px;
+}
+.box {
+    width:70%;
+    height:200px;
+    background:#FFF;
+    margin:40px auto;
+}
+
+/*==================================================
+ * Effect 6
+ * ===============================================*/
+.effect6
+{
+    position:relative;       
+        box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+.effect6:before, .effect6:after
+{
+    content:"";
+    position:absolute; 
+    z-index:-1;
+    box-shadow:0 0 20px rgba(0,0,0,0.8);
+    top:50%;
+    bottom:0;
+    left:10px;
+    right:10px;
+    border-radius:100px / 10px;
+}
+</code></pre>
+<h2>CSS Box Shadow Effect 7</h2>
+<p><img src="http://www.paulund.co.uk/uploads/2012/01/CSS-Box-Shadow-Effects7-590x202.png" alt="CSS Box Shadow Effects7" title="CSS Box Shadow Effects7" /> This effect uses the previous effect and adds another shadow to the top of the box. </p>
+<h3>The HTML</h3>
+<pre><code>
+&lt;div class="box effect7"&gt;
+    &lt;h3&gt;Effect 7&lt;/h3&gt;
+&lt;/div&gt;
+</code></pre>
+<h3>The CSS</h3>
+<pre><code>
+.box h3{
+    text-align:center;
+    position:relative;
+    top:80px;
+}
+.box {
+    width:70%;
+    height:200px;
+    background:#FFF;
+    margin:40px auto;
+}
+
+/*==================================================
+ * Effect 7
+ * ===============================================*/
+.effect7
+{
+    position:relative;
+    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+.effect7:before, .effect7:after
+{
+    content:"";
+    position:absolute; 
+    z-index:-1;
+    box-shadow:0 0 20px rgba(0,0,0,0.8);
+    top:0;
+    bottom:0;
+    left:10px;
+    right:10px;
+    border-radius:100px / 10px;
+} 
+.effect7:after
+{
+    right:10px; 
+    left:auto; 
+    transform:skew(8deg) rotate(3deg);
+}
+</code></pre>
+<h2>CSS Box Shadow Effect 8</h2>
+<p><img src="http://www.paulund.co.uk/uploads/2012/01/CSS-Box-Shadow-Effects8-590x199.png" alt="CSS Box Shadow Effects8" title="CSS Box Shadow Effects8" /> The final effect will add rounded shadows to either side of the box. </p>
+<h3>The HTML</h3>
+<pre><code>
+&lt;div class="box effect8"&gt;
+    &lt;h3&gt;Effect 8&lt;/h3&gt;
+&lt;/div&gt;
+</code></pre>
+<h3>The CSS</h3>
+<pre><code>
+.box h3{
+    text-align:center;
+    position:relative;
+    top:80px;
+}
+.box {
+    width:70%;
+    height:200px;
+    background:#FFF;
+    margin:40px auto;
+}
+
+/*==================================================
+ * Effect 8
+ * ===============================================*/
+.effect8
+{
+    position:relative;
+    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+.effect8:before, .effect8:after
+{
+    content:"";
+    position:absolute; 
+    z-index:-1;
+    box-shadow:0 0 20px rgba(0,0,0,0.8);
+    top:10px;
+    bottom:10px;
+    left:0;
+    right:0;
+    border-radius:100px / 10px;
+} 
+.effect8:after
+{
+    right:10px; 
+    left:auto; 
+    transform:skew(8deg) rotate(3deg);
+}  
+</code></pre>
+<h2>Demo Page</h2>
+<p>View the demo page to see all these effects. <a href="http://www.paulund.co.uk/playground/demo/css_box_shadow/">CSS Box Shadow Effects Demo</a></p>
+    </div>
+
+            
+                    <section class="w-full p-4 mb-4 bg-grey-lighter text-center">
+    <div class="align-middle flex flex-col my-4">
+        <h2 class="my-8">Upgrade to access all content on Paulund</h2>
+
+        <p class="mb-2">Members unlock all tutorials and snippets</p>
+        <p class="mb-2">Access to all downloadable content</p>
+        <p class="mb-2">Access to code examples before others</p>
+
+        <p><a href="https://paulund.co.uk/register" class="button">Sign Up Now</a></p>
+
+        <p><small><a href="https://paulund.co.uk/login">Already a member? Login here</a></small></p>
+    </div>
+</section>    
+            <section class="w-full my-4 p-4 bg-grey-lightest text-grey-darkest text-center border-t-8">
+    <div class="w-full container relative mx-auto px-6 flex-col">
+        <h2 class="my-4">Subscribe To The Weekly Newsletter</h2>
+        <p class="my-4">Get weekly updates to your email</p>
+
+        <form class="ml-block-form" action="//app.mailerlite.com/webforms/submit/x7m5e5" data-code="x7m5e5" method="POST" target="_blank">
+            <div class="field is-grouped">
+                <div class="control has-icons-left is-expanded">
+                    <input type="email" value="" name="fields[email]" class="input is-flat required email" id="email" placeholder="Email address" required="" aria-required="true">
+                </div>
+                <div class="control m-4">
+                    <input type="submit" value="Subscribe" name="subscribe" id="subscribe" class="button border-0">
+                </div>
+            </div>
+            <input type="hidden" name="ml-submit" value="1" />
+        </form>
+    </div>
+</section>        </div>
+
+    <footer class="w-full bg-grey-lighter p-6">
+    <div class="my-8 container-md mx-auto flex justify-between">
+        <div class="w-full md:w-1/2">
+            <p class="mb-2 font-bold">PAULUND</p>
+            <p class="mb-2">Find me on</p>
+            <ul class="list-reset">
+                <li><a class="font-bold" href="https://github.com/paulund">Github</a></li>
+                <li><a class="font-bold" href="https://twitter.com/paulund">Twitter</a></li>
+                <li><a class="font-bold" href="https://paulund.co.uk/contact">Email</a></li>
+            </ul>
+            <p>Paulund &copy;2019 <a href="https://paulund.co.uk/privacy"><small>Privacy</small></a></p>
+        </div>
+
+        <div class="w-full md:w-1/2">
+            <ul class="list-reset text-right">
+                <li><a class="font-bold" href="https://paulund.co.uk/tutorials">Tutorials</a></li>
+                <li><a class="font-bold" href="https://paulund.co.uk/tools/all">Tools</a></li>
+                <li><a class="font-bold" href="https://paulund.co.uk/resources">Resources</a></li>
+                <li><a class="font-bold" href="https://paulund.co.uk/about">About</a></li>
+                <li><a class="font-bold" href="https://paulund.co.uk/contact">Contact</a></li>
+                <li><a class="font-bold" href="https://paulund.co.uk/register">Sign Up</a></li>
+                <li><a class="font-bold" href="https://paulund.co.uk/login">Login</a></li>
+            </ul>
+        </div>
+
+    </div>
+</footer></div>
+
+<script type="text/javascript">
+  WebFontConfig = {
+    google: { families: [ 'Montserrat' ] }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })();
+  // ]]>
+</script>    <script src="/js/prism.js?id=d812fb2a29bfa2dc404b"></script>
+<script src="https://cdn.jsdelivr.net/ga-lite/latest/ga-lite.min.js" async></script>
+<script>var galite = galite || {};galite.UA = 'UA-8196211-5';</script>
+</body>
+</html>

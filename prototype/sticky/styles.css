@@ -1,0 +1,56 @@
+.box {
+    width:400px;
+    height:400px;
+    background: orange;
+    margin:40px auto;
+}
+
+/*==================================================
+ * Effect 2
+ * ===============================================*/
+.effect2
+{
+  position: relative;
+}
+.effect2:before, .effect2:after
+{
+  z-index: -1;
+  position: absolute;
+  content: "";
+  bottom: 15px;
+  left: 10px;
+  width: 50%;
+  top: 80%;
+  max-width:300px;
+  background: #777;
+  box-shadow: 0 15px 10px #777;
+  transform: rotate(-3deg);
+}
+.effect2:after
+{
+  transform: rotate(3deg);
+  right: 10px;
+  left: auto;
+}
+
+#mydiv {
+  position: absolute;
+  z-index: 1;
+  text-align: center;
+  cursor: move;
+}
+
+#mydivheader {
+  padding: 5px;
+  cursor: move;
+  z-index: 2;
+  background-color: #000000;
+  color: #fff;
+}
+
+.resizable {
+    overflow: scroll;
+    resize: both;
+    max-width: 460px;
+    max-height: 460px;
+}

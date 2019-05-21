@@ -2,9 +2,9 @@
 
 https://github.com/Nicetiesniceties/midterm_Stick-it.git
 
-![img](/Users/Njceties/Secrets/NTU Courses/NTU sixth semester/Web Programming/midterm_Stick-it/img.png)
+![img](./img.png)
 
-![img1](/Users/Njceties/Secrets/NTU Courses/NTU sixth semester/Web Programming/midterm_Stick-it/img1.png)
+![img1](./img1.png)
 
 ### 簡介
 

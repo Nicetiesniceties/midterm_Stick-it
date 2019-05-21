@@ -3,3 +3,6 @@ npm install react-contenteditable
 npm install react-draggable
 npm install draft-js-plugins-editor
 npm install draft-js-inline-toolbar-plugin
+npm i style-loader css-loader --save-dev
+npm install draft-js-static-toolbar-plugin
+

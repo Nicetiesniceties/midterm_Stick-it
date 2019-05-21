@@ -1,5 +1,5 @@
 import React from 'react';
-import Post from '../components/post';
+import Post from '../components/post1';
 import "../components/css/post.css"
 import "../components/css/add.css"
 import "./css/bulletin.css"
@@ -36,14 +36,9 @@ class Bulletin extends React.Component  {
        <div className="background">
 
           {this.state.post_list.map(
-            e => <Post socket={this.props.socket} color={e.color} text={e.text} x={e.x} y={e.y} w={e.w} h={e.h} index_handler = {this.index_handler} index_num = {this.state.zIndex_num}/>
+            e => <Post color={e.color} text={e.text} x={e.x} y={e.y} w={e.w} h={e.h} index_handler = {this.index_handler} index_num = {this.state.zIndex_num}/>
             )}
-          <div className="add-button">
-            <div className="sub-button tl" onClick = {() => this.handleClick("orange")}></div>
-            <div className="sub-button tr" onClick = {() => this.handleClick("rgb(0, 195, 255)")}></div>
-            <div className="sub-button bl" onClick = {() => this.handleClick("greenyellow")}></div>
-            <div className="sub-button br" onClick = {() => this.handleClick("#ff4081")}></div>
-          </div>
+          <div className="add-button" onClick = {() => this.handleClick("orange")}></div>
        </div>
       );
   }

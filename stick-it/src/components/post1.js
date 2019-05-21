@@ -13,12 +13,10 @@ class Post extends React.Component  {
         y: this.props.y, 
         h: this.props.h, 
         w: this.props.w,
-        color: this.props.color, 
         exist: true,
         zIndex: 0,
     };
   }
-
   onClick = () => {
     this.props.index_handler();
     this.setState({
@@ -50,7 +48,7 @@ class Post extends React.Component  {
           onClick = {this.onClick}
           style = {{zIndex: this.state.zIndex, display: this.state.exist? "":"none"}}
           >
-            <div className="box" style={{backgroundColor: this.props.color}} >
+            <div className="paper" style={{backgroundColor: this.props.color}} >
             <div className="editor_wrap" onClick = {this.onClick}>
               <a href="#" class="close"></a>
               <MyEditor className="editor" text={this.props.text}/>
@@ -58,7 +56,6 @@ class Post extends React.Component  {
             <div className="mhandle">
             <a href="#" className="close-thick" onClick ={this.close}></a>
             </div>
-            <div className="paper-shadow paper-shadow-top"></div>
           </div>
           </Rnd>
       );

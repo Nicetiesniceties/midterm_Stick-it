@@ -1,33 +1,80 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import {Editor, EditorState} from 'draft-js';
+/* eslint-disable react/no-multi-comp */
+import React, { Component } from 'react';
+import { ContentState, EditorState, RichUtils, convertToRaw } from 'draft-js';
+import Editor, { createEditorStateWithText } from 'draft-js-plugins-editor';
+import 'draft-js-inline-toolbar-plugin/lib/plugin.css';
+import DraftPasteProcessor from 'draft-js/lib/DraftPasteProcessor';
+import createInlineToolbarPlugin, { Separator } from 'draft-js-inline-toolbar-plugin';
+import {
+  ItalicButton,
+  BoldButton,
+  UnderlineButton,
+  CodeButton,
+  HeadlineOneButton,
+  HeadlineTwoButton,
+  UnorderedListButton,
+  OrderedListButton,
+  BlockquoteButton,
+  CodeBlockButton,
+} from 'draft-js-buttons';
+import editorStyles from './css/editorStyles.css';
+import { init } from 'events';
 
-export default class MyEditor extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {editorState: EditorState.createEmpty()};
-    this.onChange = (editorState) => this.setState({editorState});
-    this.setEditor = (editor) => {
-      this.editor = editor;
-    };
-    this.focusEditor = () => {
-      if (this.editor) {
-        this.editor.focus();
-      }
-    };
-  }
-  componentDidMount() {
-    this.focusEditor();
-  }
 
+
+/*const inlineToolbarPlugin = createInlineToolbarPlugin();
+const { InlineToolbar } = inlineToolbarPlugin;
+const plugins = [inlineToolbarPlugin];*/
+export default class Edit extends Component {
+    constructor(props) {
+        super(props);
+        var inlineToolbarPlugin = createInlineToolbarPlugin();
+        var plugins = [inlineToolbarPlugin];
+        this.state = {
+            editorState: createEditorStateWithText(props.text),
+            plugins: plugins,
+            toolbar: inlineToolbarPlugin,
+        };
+    }
+  onChange = (editorState) => {
+    this.setState({
+      editorState,
+    });
+  };
+
+  focus = () => {
+    this.editor.focus();
+  };
   render() {
+    const { InlineToolbar } = this.state.toolbar;
     return (
-      <div onClick={this.focusEditor}>
+      <div onClick={this.focus}>
         <Editor
-          ref={this.setEditor}
           editorState={this.state.editorState}
           onChange={this.onChange}
+          plugins={this.state.plugins}
+          ref={(element) => { this.editor = element; }}
         />
+        <InlineToolbar>
+          {
+            // may be use React.Fragment instead of div to improve perfomance after React 16
+            (externalProps) => (
+              <div>
+                <BoldButton {...externalProps} />
+                <ItalicButton {...externalProps} />
+                <UnderlineButton {...externalProps} />
+                <CodeButton {...externalProps} />
+                <Separator {...externalProps} />
+                <HeadlineOneButton {...externalProps} />
+                <HeadlineTwoButton {...externalProps} />
+                <UnorderedListButton {...externalProps} />
+                <OrderedListButton {...externalProps} />
+                <BlockquoteButton {...externalProps} />
+                <CodeBlockButton {...externalProps} />
+              </div>
+            )
+          }
+        </InlineToolbar>
       </div>
     );
   }
